@@ -1,0 +1,10 @@
+import React, {useEffect} from 'react';
+
+export const Comp = ({value}) => {
+    useEffect(() => {
+        document.title = value;
+    }, []);
+    return value;
+};
+
+export const value = new Object();

@@ -13,3 +13,8 @@ jobs:
             code_quality: false
         needs:
             - build
+    test:
+        name: Test
+        uses: DmitriyZverev/.github/.github/workflows/test.yml@v2.0.0
+        with:
+            coverage: false

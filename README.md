@@ -12,36 +12,56 @@ _The [ESLint](https://eslint.org/) configuration that uses in my packages_
     npm i eslint typescript @dmitriyzverev/eslint-config
     ```
 
-2. Configure `.eslintrc` file:
+2. Configure `eslint.config.js` file:
 
-    ```json
-    {
-        "extends": ["@dmitriyzverev/eslint-config"],
-        "parserOptions": {
-            "sourceType": "module",
-            "project": ["path/to/your/tsconfig.json"]
-        }
-    }
+    ```js
+    import {createConfig} from '@dmitriyzverev/eslint-config';
+
+    export default createConfig({
+        react: true,
+        configs: [
+            {
+                languageOptions: {
+                    parserOptions: {
+                        project: ['path/to/your/tsconfig.json'],
+                    },
+                },
+            },
+        ],
+    });
     ```
+
+    `createConfig` places your `configs` after the package configs and turns off
+    rules conflicting with [Prettier](https://prettier.io/) at the very end.
+
+    Options:
+
+    - `react` — include React rules, `false` by default.
+    - `configs` — your config objects, `[]` by default.
 
 3. Run [ESLint](https://eslint.org/):
     ```bash
     npx eslint
     ```
 
-### Usage with React
+### Composing configs manually
 
-Configure `.eslintrc` file:
+The package configs are also available as arrays of config objects:
 
-```json
-{
-    "extends": [
-        "@dmitriyzverev/eslint-config",
-        "@dmitriyzverev/eslint-config/react"
-    ],
-    "parserOptions": {
-        "sourceType": "module",
-        "project": ["path/to/your/tsconfig.json"]
-    }
-}
+```js
+import {
+    config,
+    prettierConfig,
+    reactConfig,
+} from '@dmitriyzverev/eslint-config';
+
+export default [
+    ...config,
+    ...reactConfig,
+    // your configs
+    ...prettierConfig,
+];
 ```
+
+`prettierConfig` turns off rules conflicting with
+[Prettier](https://prettier.io/), so add it after all other configs.
