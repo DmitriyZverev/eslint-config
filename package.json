@@ -9,8 +9,7 @@
   "license": "MIT",
   "type": "module",
   "exports": {
-    ".": "./index.js",
-    "./react": "./react.js"
+    ".": "./index.js"
   },
   "author": {
     "name": "Dmitriy Zverev",
@@ -21,23 +20,30 @@
     "url": "https://github.com/DmitriyZverev/eslint-config.git"
   },
   "scripts": {
-    "build": "rm -rf .package && mkdir .package && cp -r index.js react.js src package.json LICENSE README.md .package",
+    "build": "rm -rf .package && mkdir .package && cp -r index.js src package.json LICENSE README.md .package",
     "formatter:fix": "npx prettier --write \"**/*.{js,json,yml,md}\"",
-    "formatter:check": "npx prettier --check \"**/*.{js,json,yml,md}\""
+    "formatter:check": "npx prettier --check \"**/*.{js,json,yml,md}\"",
+    "test": "tsc -p test/fixtures && node --test \"test/**/*.test.js\""
   },
   "dependencies": {
-    "@typescript-eslint/parser": "^5.55.0",
-    "eslint-config-prettier": "^8.10.2",
-    "eslint-plugin-import": "^2.25.0",
-    "eslint-plugin-react": "^7.27.0",
-    "eslint-plugin-react-hooks": "^4.6.0"
+    "@stylistic/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^8.71.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0"
   },
   "devDependencies": {
     "@dmitriyzverev/prettier-config": "3.0.1",
-    "prettier": "3.9.10"
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "eslint": "9.39.5",
+    "json-stringify-pretty-compact": "4.0.0",
+    "prettier": "3.9.10",
+    "typescript": "5.9.3"
   },
   "peerDependencies": {
-    "eslint": "^8.27.0",
-    "typescript": "^4.0.0 || ^5.0.0"
+    "eslint": "^9.7.0",
+    "typescript": "^4.8.4 || ^5.0.0"
   }
 }
