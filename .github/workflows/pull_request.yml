@@ -1,0 +1,15 @@
+name: Check pull request
+on:
+    - pull_request
+jobs:
+    build:
+        name: Build
+        uses: DmitriyZverev/.github/.github/workflows/build.yml@v2.0.0
+    analyze:
+        name: Analyze
+        uses: DmitriyZverev/.github/.github/workflows/analyze.yml@v2.0.0
+        with:
+            api_quality: false
+            code_quality: false
+        needs:
+            - build
