@@ -1,12 +1,17 @@
 {
   "name": "@dmitriyzverev/eslint-config",
-  "version": "3.0.2",
+  "version": "4.0.0",
   "homepage": "https://github.com/DmitriyZverev/eslint-config",
   "bugs": {
     "url": "https://github.com/DmitriyZverev/eslint-config/issues",
     "email": "opensource@zver.dev"
   },
   "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": "./index.js",
+    "./react": "./react.js"
+  },
   "author": {
     "name": "Dmitriy Zverev",
     "email": "opensource@zver.dev"
