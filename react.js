@@ -1,1 +1,1 @@
-module.exports = require('./src/react');
+export {default} from './src/react.js';
