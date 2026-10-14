@@ -31,8 +31,8 @@
   },
   "scripts": {
     "build": "rm -rf .package && npx tsc --outDir .package  && cp -r package.json LICENSE README.md .package",
-    "formatter:fix": "npx prettier --write \"**/*.{js,json,yml,md}\"",
-    "formatter:check": "npx prettier --check \"**/*.{js,json,yml,md}\"",
+    "formatter:fix": "prettier --write .",
+    "formatter:check": "prettier --check .",
     "analyzer:api:check": "npx api-extractor run --local --verbose",
     "test": "npm run build && tsc -p tsconfig.test.json && tsc -p test/fixtures && node --test \"test/**/*.test.ts\""
   },
