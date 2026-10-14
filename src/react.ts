@@ -1,6 +1,6 @@
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
-import type {Linter} from 'eslint';
+import type {ESLint, Linter} from 'eslint';
 
 import {files} from './files.js';
 
@@ -17,7 +17,7 @@ export const reactConfig: Linter.Config[] = [
         files,
         plugins: {
             react: reactPlugin,
-            'react-hooks': reactHooksPlugin,
+            'react-hooks': reactHooksPlugin as ESLint.Plugin,
         },
         settings: {
             react: {
