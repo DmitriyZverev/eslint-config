@@ -5,6 +5,25 @@ import type {Linter, ESLint} from 'eslint';
 
 import {files} from './files.js';
 
+/**
+ * Base config for JavaScript and TypeScript files.
+ *
+ * @remarks
+ * Applies to `.js`, `.jsx`, `.mjs`, `.cjs`, `.ts`, `.tsx`, `.mts` and `.cts` files and supports TypeScript syntax.
+ * `languageOptions.parserOptions` are passed to `@typescript-eslint/parser`.
+ *
+ * Use {@link createConfig} to get the complete config. Use this config only to compose the complete config manually.
+ *
+ * @example
+ * ```js
+ * // eslint.config.js
+ * import {config, prettierConfig, reactConfig} from '@dmitriyzverev/eslint-config';
+ *
+ * export default [...config, ...reactConfig, ...projectConfigs, ...prettierConfig];
+ * ```
+ *
+ * @public
+ */
 export const config: Linter.Config[] = [
     {
         files,

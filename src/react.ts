@@ -4,6 +4,14 @@ import type {Linter} from 'eslint';
 
 import {files} from './files.js';
 
+/**
+ * Config for React components and hooks.
+ *
+ * @remarks
+ * Supplements {@link config} and must be placed after it.
+ *
+ * @public
+ */
 export const reactConfig: Linter.Config[] = [
     {
         files,
