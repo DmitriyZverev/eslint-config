@@ -1,4 +1,4 @@
-import {createConfig} from '@dmitriyzverev/eslint-config';
+import {createConfig} from '../../.package/index.js';
 
 export default createConfig({
     react: true,

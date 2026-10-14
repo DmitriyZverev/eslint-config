@@ -4,22 +4,30 @@ import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
 
-import {ESLint} from 'eslint';
+import {ESLint, type Linter} from 'eslint';
 import stringify from 'json-stringify-pretty-compact';
 
 const fixturesDir = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures');
 
 const fileNames = ['file.js', 'file.jsx', 'file.mjs', 'file.cjs', 'file.ts', 'file.tsx', 'file.mts', 'file.cts'];
 
-function createESLint(configFileName) {
+interface CalculatedConfig {
+    languageOptions: {sourceType: Linter.SourceType; parser: {meta: {name: string}}};
+    settings?: Record<string, unknown>;
+    rules: Record<string, [Linter.Severity, ...unknown[]]>;
+}
+
+function createESLint(configFileName: string) {
     return new ESLint({
         cwd: fixturesDir,
         overrideConfigFile: path.join(fixturesDir, configFileName),
     });
 }
 
-async function getEffectiveConfig(eslint) {
-    const configs = await Promise.all(fileNames.map((fileName) => eslint.calculateConfigForFile(fileName)));
+async function getEffectiveConfig(eslint: ESLint) {
+    const configs: CalculatedConfig[] = await Promise.all(
+        fileNames.map((fileName) => eslint.calculateConfigForFile(fileName)),
+    );
     return Object.fromEntries(
         configs.map(({languageOptions: {sourceType, parser}, settings, rules}, index) => [
             fileNames[index],
@@ -35,9 +43,9 @@ async function getEffectiveConfig(eslint) {
 describe('createConfig with React', () => {
     const eslint = createESLint('eslintWithReact.config.js');
 
-    async function lint(fileName) {
+    async function lint(fileName: string) {
         const [result] = await eslint.lintFiles([path.join('src', fileName)]);
-        return result.messages.map((message) => message.ruleId ?? message.message);
+        return result?.messages.map((message) => message.ruleId ?? message.message) ?? [];
     }
 
     it('uses no deprecated rules', async () => {

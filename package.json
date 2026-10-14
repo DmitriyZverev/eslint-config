@@ -20,10 +20,10 @@
     "url": "https://github.com/DmitriyZverev/eslint-config.git"
   },
   "scripts": {
-    "build": "rm -rf .package && mkdir .package && cp -r index.js src package.json LICENSE README.md .package",
+    "build": "rm -rf .package && npx tsc --outDir .package  && cp -r package.json LICENSE README.md .package",
     "formatter:fix": "npx prettier --write \"**/*.{js,json,yml,md}\"",
     "formatter:check": "npx prettier --check \"**/*.{js,json,yml,md}\"",
-    "test": "tsc -p test/fixtures && node --test \"test/**/*.test.js\""
+    "test": "npm run build && tsc -p tsconfig.test.json && tsc -p test/fixtures && node --test \"test/**/*.test.ts\""
   },
   "dependencies": {
     "@stylistic/eslint-plugin": "^3.1.0",
@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@dmitriyzverev/prettier-config": "3.0.1",
+    "@dmitriyzverev/typescript-config": "1.1.1",
     "@types/node": "24.19.2",
     "@types/react": "19.3.0",
     "eslint": "9.39.5",

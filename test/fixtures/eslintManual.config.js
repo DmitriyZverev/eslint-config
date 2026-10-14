@@ -1,4 +1,4 @@
-import {config, prettierConfig, reactConfig} from '@dmitriyzverev/eslint-config';
+import {config, prettierConfig, reactConfig} from '../../.package/index.js';
 
 export default [
     ...config,

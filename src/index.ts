@@ -1,17 +1,18 @@
 import stylisticPlugin from '@stylistic/eslint-plugin';
 import typescriptParser from '@typescript-eslint/parser';
 import importPlugin from 'eslint-plugin-import';
+import type {Linter, ESLint} from 'eslint';
 
 import {files} from './files.js';
 
-export const config = [
+export const config: Linter.Config[] = [
     {
         files,
         languageOptions: {
             parser: typescriptParser,
         },
         plugins: {
-            '@stylistic': stylisticPlugin,
+            '@stylistic': stylisticPlugin as ESLint.Plugin,
             import: importPlugin,
         },
         rules: {
