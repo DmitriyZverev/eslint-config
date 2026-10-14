@@ -9,7 +9,6 @@ jobs:
         name: Analyze
         uses: DmitriyZverev/.github/.github/workflows/analyze.yml@v2.0.0
         with:
-            api_quality: false
             code_quality: false
         needs:
             - build
