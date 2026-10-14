@@ -155,7 +155,11 @@ exports[`createConfig with React > matches the effective config snapshot 1`] = `
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -371,7 +375,11 @@ exports[`createConfig with React > matches the effective config snapshot 1`] = `
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -587,7 +595,11 @@ exports[`createConfig with React > matches the effective config snapshot 1`] = `
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -803,7 +815,11 @@ exports[`createConfig with React > matches the effective config snapshot 1`] = `
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -1019,7 +1035,11 @@ exports[`createConfig with React > matches the effective config snapshot 1`] = `
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -1235,7 +1255,11 @@ exports[`createConfig with React > matches the effective config snapshot 1`] = `
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -1451,7 +1475,11 @@ exports[`createConfig with React > matches the effective config snapshot 1`] = `
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -1667,7 +1695,11 @@ exports[`createConfig with React > matches the effective config snapshot 1`] = `
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -1887,7 +1919,11 @@ exports[`createConfig without React > matches the effective config snapshot 1`] 
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -2066,7 +2102,11 @@ exports[`createConfig without React > matches the effective config snapshot 1`] 
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -2245,7 +2285,11 @@ exports[`createConfig without React > matches the effective config snapshot 1`] 
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -2424,7 +2468,11 @@ exports[`createConfig without React > matches the effective config snapshot 1`] 
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -2603,7 +2651,11 @@ exports[`createConfig without React > matches the effective config snapshot 1`] 
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -2782,7 +2834,11 @@ exports[`createConfig without React > matches the effective config snapshot 1`] 
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -2961,7 +3017,11 @@ exports[`createConfig without React > matches the effective config snapshot 1`] 
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],
@@ -3140,7 +3200,11 @@ exports[`createConfig without React > matches the effective config snapshot 1`] 
         2,
         {"enforceForIndexOf": false, "enforceForSwitchCase": true}
       ],
-      "@stylistic/lines-between-class-members": [2, "always"],
+      "@stylistic/lines-between-class-members": [
+        2,
+        "always",
+        {"exceptAfterOverload": true, "exceptAfterSingleLine": false}
+      ],
       "import/first": [2],
       "import/no-amd": [2],
       "import/no-default-export": [2],

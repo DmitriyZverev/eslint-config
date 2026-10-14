@@ -148,7 +148,14 @@ export const config: Linter.Config[] = [
             'require-yield': 'error',
             'use-isnan': 'error',
 
-            '@stylistic/lines-between-class-members': ['error', 'always'],
+            '@stylistic/lines-between-class-members': [
+                'error',
+                'always',
+                {
+                    exceptAfterOverload: true,
+                    exceptAfterSingleLine: false,
+                },
+            ],
 
             'import/first': 'error',
             'import/no-amd': 'error',
