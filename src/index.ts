@@ -1,6 +1,8 @@
 import stylisticPlugin from '@stylistic/eslint-plugin';
+import typescriptPlugin from '@typescript-eslint/eslint-plugin';
 import typescriptParser from '@typescript-eslint/parser';
 import importPlugin from 'eslint-plugin-import';
+import perfectionistPlugin from 'eslint-plugin-perfectionist';
 import type {Linter, ESLint} from 'eslint';
 
 import {files} from './files.js';
@@ -32,7 +34,15 @@ export const config: Linter.Config[] = [
         },
         plugins: {
             '@stylistic': stylisticPlugin as ESLint.Plugin,
+            '@typescript-eslint': typescriptPlugin as unknown as ESLint.Plugin,
             import: importPlugin,
+            perfectionist: perfectionistPlugin,
+        },
+        settings: {
+            'import/extensions': ['.js', '.jsx', '.mjs', '.cjs', '.ts', '.tsx', '.mts', '.cts'],
+            'import/resolver': {
+                typescript: true,
+            },
         },
         rules: {
             'constructor-super': 'error',
@@ -84,7 +94,6 @@ export const config: Linter.Config[] = [
             'no-dupe-else-if': 'error',
             'no-dupe-keys': 'error',
             'no-duplicate-case': 'error',
-            'no-duplicate-imports': 'error',
             'no-else-return': 'error',
             'no-empty': [
                 'error',
@@ -157,17 +166,88 @@ export const config: Linter.Config[] = [
                 },
             ],
 
-            'import/first': 'error',
-            'import/no-amd': 'error',
-            'import/no-default-export': 'error',
-            'import/no-webpack-loader-syntax': 'error',
-            'import/order': [
+            '@typescript-eslint/consistent-type-imports': [
                 'error',
                 {
-                    'newlines-between': 'always',
-                    groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+                    prefer: 'type-imports',
+                    fixStyle: 'separate-type-imports',
                 },
             ],
+            '@typescript-eslint/no-require-imports': 'error',
+            '@typescript-eslint/no-useless-empty-export': 'error',
+
+            'import/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+            'import/enforce-node-protocol-usage': ['error', 'always'],
+            'import/export': 'error',
+            'import/first': 'error',
+            'import/newline-after-import': 'error',
+            'import/no-amd': 'error',
+            'import/no-cycle': 'error',
+            'import/no-default-export': 'error',
+            'import/no-duplicates': 'error',
+            'import/no-empty-named-blocks': 'error',
+            'import/no-extraneous-dependencies': 'error',
+            'import/no-mutable-exports': 'error',
+            'import/no-self-import': 'error',
+            'import/no-useless-path-segments': 'error',
+            'import/no-webpack-loader-syntax': 'error',
+
+            'perfectionist/sort-exports': [
+                'error',
+                {
+                    type: 'alphabetical',
+                    order: 'asc',
+                    ignoreCase: true,
+                    groups: [['value-export', 'type-export']],
+                    fallbackSort: {
+                        type: 'subgroup-order',
+                        order: 'asc',
+                    },
+                },
+            ],
+            'perfectionist/sort-imports': [
+                'error',
+                {
+                    type: 'alphabetical',
+                    order: 'asc',
+                    ignoreCase: true,
+                    groups: [
+                        ['value-builtin', 'type-builtin'],
+                        ['value-external', 'type-external'],
+                        ['value-internal', 'type-internal'],
+                        ['value-parent', 'type-parent'],
+                        ['value-sibling', 'type-sibling'],
+                        ['value-index', 'type-index'],
+                        'unknown',
+                    ],
+                    fallbackSort: {
+                        type: 'subgroup-order',
+                        order: 'asc',
+                    },
+                },
+            ],
+            'perfectionist/sort-named-exports': [
+                'error',
+                {
+                    type: 'alphabetical',
+                    order: 'asc',
+                    ignoreCase: true,
+                },
+            ],
+            'perfectionist/sort-named-imports': [
+                'error',
+                {
+                    type: 'alphabetical',
+                    order: 'asc',
+                    ignoreCase: true,
+                },
+            ],
+        },
+    },
+    {
+        files: ['**/*.{cjs,cts}'],
+        rules: {
+            '@typescript-eslint/no-require-imports': 'off',
         },
     },
 ];

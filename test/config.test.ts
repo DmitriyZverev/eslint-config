@@ -4,7 +4,8 @@ import path from 'node:path';
 import {describe, it} from 'node:test';
 import {fileURLToPath} from 'node:url';
 
-import {ESLint, type Linter} from 'eslint';
+import {ESLint} from 'eslint';
+import type {Linter} from 'eslint';
 import stringify from 'json-stringify-pretty-compact';
 
 const fixturesDir = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures');
@@ -66,6 +67,34 @@ describe('createConfig with React', () => {
 
     it('disallows Object constructor', async () => {
         assert.deepEqual(await lint('object.ts'), ['no-object-constructor']);
+    });
+
+    it('allows separate type and value imports from the same module', async () => {
+        assert.deepEqual(await lint('separateTypeImport.ts'), []);
+    });
+
+    it('requires value imports before type imports from the same module', async () => {
+        assert.deepEqual(await lint('typeBeforeValueImport.ts'), ['perfectionist/sort-imports']);
+    });
+
+    it('requires value re-exports before type re-exports from the same module', async () => {
+        assert.deepEqual(await lint('typeBeforeValueReExport.ts'), ['perfectionist/sort-exports']);
+    });
+
+    it('disallows useless path segments in imports', async () => {
+        assert.deepEqual(await lint('uselessPathSegments.ts'), ['import/no-useless-path-segments']);
+    });
+
+    it('disallows import cycles', async () => {
+        assert.deepEqual(await lint('cycleA.ts'), ['import/no-cycle']);
+    });
+
+    it('disallows require imports in ES modules', async () => {
+        assert.deepEqual(await lint('requireImport.ts'), ['@typescript-eslint/no-require-imports']);
+    });
+
+    it('allows require imports in CommonJS modules', async () => {
+        assert.deepEqual(await lint('requireImport.cts'), []);
     });
 
     it('does not apply rules outside of config files', async () => {
